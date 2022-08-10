@@ -12,10 +12,14 @@
         <label for="publishedBefore">Published Before</label>
         <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>" />
     </div>
-    <button tyoe="submit">Search</button>
+    <button type="submit">Search</button>
 </form>
 <div>
     <% books.forEach((book) => { %>
-    <img height="150" src="<%= book.coverImagePath %>" />
+    <div>
+        <a href="/books/<%= book.id %>"><img height="150" src="<%= book.coverImagePath %>" /></a>
+        <a href="/books/<%= book.id %>/edit">Edit</a>
+        <%- include('../partials/deleteForm', { url: `/books/${book.id}` }) %>
+    </div>
     <% }) %>
 </div>
