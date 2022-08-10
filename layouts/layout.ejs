@@ -9,6 +9,7 @@
 
         <link href="/deps/filepond/dist/filepond.min.css" rel="stylesheet" />
         <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
+        <link href="/stylesheets/main.css" rel="stylesheet" />
 
         <script defer src="/deps/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.min.js"></script>
         <script defer src="/deps/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
@@ -17,6 +18,12 @@
         <script defer src="/javascript/fileUpload.js"></script>
     </head>
     <body>
-        <%- include("../views/partials/header.ejs") %> <%- include("../views/partials/errorMessage.ejs") %> <%- body %>
+        <div class="container">
+            <%- include("../views/partials/header.ejs") %>
+            <div class="inner-container">
+                <div><%- include("../views/partials/errorMessage.ejs") %></div>
+                <div><%- body %></div>
+            </div>
+        </div>
     </body>
 </html>
