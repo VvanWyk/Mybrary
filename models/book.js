@@ -1,45 +1,49 @@
-const mongoose = require("mongoose");
-const path = require("path");
-
-const coverImageBasePath = "upload/bookCovers";
+const mongoose = require('mongoose');
+//const path = require('path');
+//const coverImageBasePath = 'upload/bookCovers';
 
 const bookSchema = mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-  },
-  publishedDate: {
-    type: Date,
-    required: true,
-  },
-  pageCount: {
-    type: Number,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    required: true,
-    default: Date.now,
-  },
-  coverImage: {
-    type: String,
-    required: true,
-  },
-  author: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: "Author",
-  },
+    title: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+    },
+    publishedDate: {
+        type: Date,
+        required: true,
+    },
+    pageCount: {
+        type: Number,
+        required: true,
+    },
+    createdAt: {
+        type: Date,
+        required: true,
+        default: Date.now,
+    },
+    coverImage: {
+        type: Buffer,
+        required: true,
+    },
+    coverImageType: {
+        type: String,
+        required: true,
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'Author',
+    },
 });
 
-bookSchema.virtual("coverImagePath").get(function () {
-  if (this.coverImage != null) {
-    return path.join("/", coverImageBasePath, this.coverImage);
-  }
+bookSchema.virtual('coverImagePath').get(function () {
+    if (this.coverImage != null && this.coverImageType != null) {
+        //return path.join('/', coverImageBasePath, this.coverImage);
+        return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`;
+    }
 });
 
-module.exports = mongoose.model("Book", bookSchema);
-module.exports.coverImageBasePath = coverImageBasePath;
+module.exports = mongoose.model('Book', bookSchema);
+//module.exports.coverImageBasePath = coverImageBasePath;
