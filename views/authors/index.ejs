@@ -1,10 +1,18 @@
 <H2>Search Authors</H2>
 <form action="/authors" method="get">
-    <label>Name</label>
-    <input type="text" name="name" value="<%= searchOptions.name %>" />
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" value="<%= searchOptions.name %>" />
+    </div>
     <button tyoe="submit">Submit</button>
 </form>
-<br />
-<% authors.forEach((author) => { %>
-<div><%= author.name %></div>
-<% }) %>
+<div>
+    <% authors.forEach((author) => { %>
+    <div>
+        <div><%= author.name %></div>
+        <a href="/authors/<%= author.id %>">View</a>
+        <a href="/authors/<%= author.id %>/edit">Edit</a>
+        <%- include('../partials/deleteForm', { url: `/authors/${author.id}` }) %>
+    </div>
+    <% }) %>
+</div>
