@@ -69,7 +69,11 @@
 
 .filepond--root {
     font-family: 'Gotham Rounded';
-    margin-bottom: o;
+    margin-bottom: 0;
+}
+
+.filepond--credits {
+    display: none;
 }
 
 .filepond--panel-root {

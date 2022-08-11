@@ -25,6 +25,7 @@ function ready() {
         targetWidth: coverWidth,
         targetHeight: coverHeight,
         acceptedFileTypes: ['image/*'],
+        credits: false,
     });
     FilePond.parse(document.body);
 }
