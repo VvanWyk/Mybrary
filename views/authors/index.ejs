@@ -1,10 +1,14 @@
 <h2 class="page-header">Search Authors</h2>
 <form action="/authors" method="get">
-    <div>
-        <label>Name</label>
-        <input type="text" name="name" value="<%= searchOptions.name %>" />
+    <div class="form-row">
+        <div class="form-item">
+            <label>Name</label>
+            <input type="text" name="name" value="<%= searchOptions.name %>" />
+        </div>
     </div>
-    <button type="submit">Submit</button>
+    <div class="form-row form-row-end btn-row">
+        <button class="btn btn-primary" type="submit">Search</button>
+    </div>
 </form>
 <div>
     <% authors.forEach((author) => { %>

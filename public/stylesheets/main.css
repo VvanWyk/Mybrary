@@ -1,6 +1,7 @@
 @import 'shared/variables.css';
 @import 'shared/header.css';
 @import 'shared/buttons.css';
+@import 'shared/form.css';
 @import 'shared/fonts.css';
 
 *,
@@ -30,6 +31,6 @@ body {
 }
 
 .page-header {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 500;
 }
