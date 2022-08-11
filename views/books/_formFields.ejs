@@ -18,7 +18,8 @@
 <div class="form-row">
     <div class="form-item">
         <label for title="publishedDate">Published Date</label>
-        <input type="date" name="publishedDate" value="<%= book.publishedDate == null ? '' : book.publishedDate.toISOString().split("T")[0] %>" />
+        <input type="date" name="publishedDate" value="<%= book.publishedDate == null ? '' :
+        book.publishedDate.toISOString().split("T")[0] %>" />
     </div>
     <div class="form-item">
         <label for title="pageCount">Page Count</label>
@@ -28,7 +29,7 @@
 <div class="form-row">
     <div class="form-item form-item-no-grow">
         <label for title="title">Cover</label>
-        <input type="file" name="cover" class="filepond" />
+        <input type="file" name="cover" class="filepond book-cover" />
     </div>
     <div class="form-item">
         <label for title="description">Description</label>
